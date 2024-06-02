@@ -1,9 +1,16 @@
 <template>
-  <div id="app">Hello Vue JS</div>
+  <div class="wrapper">
+    <main-view></main-view>
+    <footer-component></footer-component>
+  </div>
 </template>
 
 <script>
-export default {};
+import MainView from "./views/MainView.vue";
+import FooterComponent from "./components/FooterComponent.vue";
+export default {
+  components: { MainView, FooterComponent },
+};
 </script>
 
 <style></style>
