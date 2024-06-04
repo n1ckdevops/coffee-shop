@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <main-view></main-view>
+    <router-view></router-view>
     <footer-component></footer-component>
   </div>
 </template>
@@ -12,5 +12,3 @@ export default {
   components: { MainView, FooterComponent },
 };
 </script>
-
-<style></style>
