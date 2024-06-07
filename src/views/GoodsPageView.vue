@@ -14,7 +14,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 offset-2">
-            <img class="shop__girl" src="@/assets/img/coffee_goods.jpg" alt="girl" />
+            <img
+              class="shop__girl"
+              src="@/assets/img/coffee_goods.jpg"
+              alt="girl"
+            />
           </div>
           <div class="col-lg-4">
             <div class="title">About our beans</div>
@@ -56,5 +60,47 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import ImagesComponent from "@/components/ImagesComponent.vue";
 export default {
   components: { NavBarComponent, ImagesComponent },
+  data() {
+    return {
+      goods: [
+        {
+          id: "0",
+          icon: "coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: "10.73$",
+        },
+        {
+          id: "1",
+          icon: "coffee-2.jpg",
+          title: "Presto Coffee Beans 1kg",
+          price: "15.99$",
+        },
+        {
+          id: "2",
+          icon: "coffee-3.jpg",
+          title: "AROMISTICO Coffee 1kg",
+          price: "6.99$",
+        },
+        {
+          id: "3",
+          icon: "coffee-1.jpg",
+          title: "Solimo Coffee Beans 2kg",
+          price: "10.73$",
+        },
+        {
+          id: "4",
+          icon: "coffee-2.jpg",
+          title: "Presto Coffee Beans 1kg",
+          price: "15.99$",
+        },
+        {
+          id: "5",
+          icon: "coffee-3.jpg",
+          title: "AROMISTICO Coffee 1kg",
+          price: "6.99$",
+        },
+      ],
+    };
+  },
 };
 </script>
