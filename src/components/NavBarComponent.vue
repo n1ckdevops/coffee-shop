@@ -3,27 +3,18 @@
     <ul
       class="header d-flex justify-content-center justify-content-md-start flex-wrap"
     >
-      <li class="header__item">
-        <router-link :to="links[0].link">
-          <img
-            :src="require(`@/assets/logo/${links[0].icon}`)"
-            :alt="links[0].icon"
-        /></router-link>
-      </li>
+      <nav-item :link="links.header.link" classLink="header__item">
+        <img
+          :src="require(`@/assets/logo/${links.header.icon}`)"
+          :alt="links.header.icon"
+      /></nav-item>
+
       <nav-item
+        v-for="link in links.other"
+        :key="link.id"
+        :link="link.link"
+        :text="link.text"
         classLink="header__item"
-        :link="links[1].link"
-        :text="links[1].text"
-      />
-      <nav-item
-        classLink="header__item"
-        :link="links[2].link"
-        :text="links[2].text"
-      />
-      <nav-item
-        classLink="header__item"
-        :link="links[3].link"
-        :text="links[3].text"
       />
     </ul>
   </header>
@@ -31,32 +22,35 @@
 
 <script>
 import NavItem from "@/components/NavItem.vue";
+import { v4 as uuidv4 } from "uuid";
 export default {
   components: { NavItem },
   data() {
     return {
-      links: [
-        {
-          id: 0,
+      links: {
+        header: {
+          id: uuidv4(),
           link: "/",
           icon: "Logo.svg",
         },
-        {
-          id: 1,
-          text: "Our coffee",
-          link: "/our-coffee",
-        },
-        {
-          id: 2,
-          text: "For your pleasure",
-          link: "/goods",
-        },
-        {
-          id: 3,
-          text: "Contact Us",
-          link: "/contacts",
-        },
-      ],
+        other: [
+          {
+            id: uuidv4(),
+            text: "Our coffee",
+            link: "/our-coffee",
+          },
+          {
+            id: uuidv4(),
+            text: "For your pleasure",
+            link: "/goods",
+          },
+          {
+            id: uuidv4(),
+            text: "Contact Us",
+            link: "/contacts",
+          },
+        ],
+      },
     };
   },
 };
