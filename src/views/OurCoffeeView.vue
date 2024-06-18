@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <nav-bar-component></nav-bar-component>
+            <nav-bar-component />
           </div>
         </div>
         <h1 class="title-big">Our Coffee</h1>
@@ -68,8 +68,44 @@
         </div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <images-component></images-component>
-            <images-component></images-component>
+            <div class="best__wrapper">
+              <images-component
+                classItem="shop__item"
+                :name="best_coffee[0].name"
+                :price="best_coffee[0].price"
+                :image="best_coffee[0].image"
+              />
+              <images-component
+                classItem="shop__item"
+                :name="best_coffee[1].name"
+                :price="best_coffee[1].price"
+                :image="best_coffee[1].image"
+              />
+              <images-component
+                classItem="shop__item"
+                :name="best_coffee[2].name"
+                :price="best_coffee[2].price"
+                :image="best_coffee[2].image"
+              />
+              <images-component
+                classItem="shop__item"
+                :name="best_coffee[3].name"
+                :price="best_coffee[3].price"
+                :image="best_coffee[3].image"
+              />
+              <images-component
+                classItem="shop__item"
+                :name="best_coffee[4].name"
+                :price="best_coffee[4].price"
+                :image="best_coffee[4].image"
+              />
+              <images-component
+                classItem="shop__item"
+                :name="best_coffee[5].name"
+                :price="best_coffee[5].price"
+                :image="best_coffee[5].image"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -86,39 +122,39 @@ export default {
       best_coffee: [
         {
           id: "0",
-          icon: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          price: "10.73$",
+          image: "coffee-1.jpg",
+          name: "Solimo Coffee Beans 2kg",
+          price: "10.73",
         },
         {
           id: "1",
-          icon: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          price: "15.99$",
+          image: "coffee-2.jpg",
+          name: "Presto Coffee Beans 1kg",
+          price: "15.99",
         },
         {
           id: "2",
-          icon: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          price: "6.99$",
+          image: "coffee-3.jpg",
+          name: "AROMISTICO Coffee 1kg",
+          price: "6.99",
         },
         {
           id: "3",
-          icon: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          price: "10.73$",
+          image: "coffee-1.jpg",
+          name: "Solimo Coffee Beans 2kg",
+          price: "10.73",
         },
         {
           id: "4",
-          icon: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          price: "15.99$",
+          image: "coffee-2.jpg",
+          name: "Presto Coffee Beans 1kg",
+          price: "15.99",
         },
         {
           id: "5",
-          icon: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          price: "6.99$",
+          image: "coffee-3.jpg",
+          name: "AROMISTICO Coffee 1kg",
+          price: "6.99",
         },
       ],
     };
