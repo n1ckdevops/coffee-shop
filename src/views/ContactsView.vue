@@ -91,7 +91,9 @@
 
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-outline-dark send-btn">Send us</button>
+                  <button @click="submit" class="btn btn-outline-dark send-btn">
+                    Send us
+                  </button>
                 </div>
               </div>
             </form>
