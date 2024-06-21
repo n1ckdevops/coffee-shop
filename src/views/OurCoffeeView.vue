@@ -88,49 +88,13 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ImagesComponent from "@/components/ImagesComponent.vue";
 import { v4 as uuidv4 } from "uuid";
+import coffee from "@/store/coffee";
 export default {
   components: { NavBarComponent, ImagesComponent },
-  data() {
-    return {
-      coffee: [
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-      ],
-    };
+  computed: {
+    coffee() {
+      return this.$store.getters["getCoffee"];
+    },
   },
 };
 </script>
