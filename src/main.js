@@ -5,9 +5,9 @@ import store from "./store";
 // import vuerouter library globally
 
 import "./assets/scss/style.scss";
+import "./filters";
 Vue.config.productionTip = false;
 
-// secondly, whole web app
 new Vue({
   store,
   router,
