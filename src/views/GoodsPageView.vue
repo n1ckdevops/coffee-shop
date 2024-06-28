@@ -66,6 +66,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ImagesComponent from "@/components/ImagesComponent.vue";
 import { navigate } from "@/mixins/navigate";
+import goods from "@/store/goods";
 
 export default {
   components: { NavBarComponent, ImagesComponent },
