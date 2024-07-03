@@ -73,10 +73,10 @@
                 v-for="card in coffee"
                 :key="card.id"
                 classItem="shop__item"
-                :name="card.name"
-                :price="card.price"
-                :image="card.image"
+                :card="card"
+                @onNavigate="navigate"
               />
+              <!-- /our-coffee/item -->
             </div>
           </div>
         </div>
@@ -87,50 +87,20 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ImagesComponent from "@/components/ImagesComponent.vue";
-import { v4 as uuidv4 } from "uuid";
+import { navigate } from "@/mixins/navigate";
+import coffee from "@/store/coffee";
 export default {
   components: { NavBarComponent, ImagesComponent },
+  computed: {
+    coffee() {
+      return this.$store.getters["getCoffee"];
+    },
+  },
   data() {
     return {
-      coffee: [
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-      ],
+      name: "coffee",
     };
   },
+  mixins: [navigate],
 };
 </script>

@@ -19,12 +19,17 @@
               We makes every day full of energy and taste
             </div>
             <div class="preview__subtitle">Want to try our beans?</div>
-            <a href="./coffeepage.html" class="preview__btn">More</a>
+            <a
+              @click.prevent="smoothScrool"
+              href="./coffeepage.html"
+              class="preview__btn"
+              >More</a
+            >
           </div>
         </div>
       </div>
     </div>
-    <section class="about">
+    <section class="about" id="about" ref="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 offset-lg-3">
@@ -55,7 +60,7 @@
     </section>
     <section class="best">
       <div class="container">
-        <div class="title">Our best</div>
+        <div class="title" ref="ourBest">Our best</div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
@@ -63,9 +68,7 @@
                 v-for="card in bestsellers"
                 :key="card.id"
                 classItem="best__item"
-                :name="card.name"
-                :price="card.price"
-                :image="card.image"
+                :card="card"
               />
             </div>
           </div>
@@ -79,31 +82,23 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ImagesComponent from "@/components/ImagesComponent.vue";
 import { v4 as uuidv4 } from "uuid";
+import { scrollIntoView } from "seamless-scroll-polyfill";
+import bestsellers from "@/store/bestsellers";
+
 export default {
   components: { NavBarComponent, ImagesComponent },
-  data() {
-    return {
-      bestsellers: [
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-      ],
-    };
+  computed: {
+    bestsellers() {
+      return this.$store.getters["getBestsellers"];
+    },
+  },
+  methods: {
+    smoothScrool() {
+      scrollIntoView(this.$refs.ourBest, {
+        behavior: "smooth",
+        block: "start",
+      });
+    },
   },
 };
 </script>
