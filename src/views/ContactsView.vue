@@ -101,6 +101,22 @@
                 </div>
               </div>
 
+              <!-- checkbox extra -->
+              <div class="form-group form-check">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  v-model="v$.agree.$model"
+                  class="form-check-input"
+                />
+                <label class="form-check-label" for="agree"
+                  >Согласен с договором оферты</label
+                >
+              </div>
+              <span v-for="error in v$.agree.$errors" :key="error.$uid">
+                {{ error.$message }}
+              </span>
+
               <div class="row">
                 <div class="col">
                   <button @click="submit" class="btn btn-outline-dark send-btn">
@@ -134,6 +150,7 @@ export default {
       email: "",
       phone: "",
       message: "",
+      agree: true,
     };
   },
   validations() {
@@ -146,6 +163,7 @@ export default {
         maxLength: maxLength(20),
         minLength: helpers.withMessage("5 символов быро мне!", minLength),
       },
+      agree: { required },
     };
   },
   methods: {
