@@ -81,16 +81,21 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ImagesComponent from "@/components/ImagesComponent.vue";
-import { v4 as uuidv4 } from "uuid";
 import { scrollIntoView } from "seamless-scroll-polyfill";
 import bestsellers from "@/store/bestsellers";
-
 export default {
   components: { NavBarComponent, ImagesComponent },
   computed: {
     bestsellers() {
       return this.$store.getters["getBestsellers"];
     },
+  },
+  mounted() {
+    fetch("http://localhost:3000/bestsellers")
+      .then((res) => res.json())
+      .then((data) => {
+        this.$store.dispatch('setBestsellersData', data)
+      });
   },
   methods: {
     smoothScrool() {
@@ -100,5 +105,6 @@ export default {
       });
     },
   },
+  
 };
 </script>
