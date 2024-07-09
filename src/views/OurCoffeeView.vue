@@ -52,16 +52,24 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
+                v-model="searchValue"
               />
+              {{ searchValue }}
             </form>
           </div>
           <div class="col-lg-4">
             <div class="shop__filter">
               <div class="shop__filter-label">Or filter</div>
               <div class="shop__filter-group">
-                <button class="shop__filter-btn">Brazil</button>
-                <button class="shop__filter-btn">Kenya</button>
-                <button class="shop__filter-btn">Columbia</button>
+                <button class="shop__filter-btn" @click="onSort('Brazil')">
+                  Brazil
+                </button>
+                <button class="shop__filter-btn" @click="onSort('Kenya')">
+                  Kenya
+                </button>
+                <button class="shop__filter-btn" @click="onSort('Columbia')">
+                  Columbia
+                </button>
               </div>
             </div>
           </div>
@@ -95,6 +103,14 @@ export default {
     coffee() {
       return this.$store.getters["getCoffee"];
     },
+    searchValue: {
+      set(value) {
+        this.$store.dispatch("setSearchValue", value);
+      },
+      get() {
+        return this.$store.getters["getSearchValue"];
+      },
+    },
   },
   data() {
     return {
@@ -106,8 +122,13 @@ export default {
     fetch("http://localhost:3000/coffee")
       .then((res) => res.json())
       .then((data) => {
-        this.$store.dispatch('setCoffeeData', data)
+        this.$store.dispatch("setCoffeeData", data);
       });
+  },
+  methods: {
+    onSort(value) {
+      this.$store.dispatch("setSortValue", value);
+    },
   },
 };
 </script>
